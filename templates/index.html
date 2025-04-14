@@ -1,0 +1,373 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/png" href="'logo.webp">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>MINI CHAT BOT</title>
+    <style>
+        body {
+            background-color: #222;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            display: flex;
+            text-align: left;
+            font-size: 36px;
+            font-weight: 20px;
+            color: white;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: 000;
+            text-align: left;
+            padding: 5px 3px;
+            margin: 0;
+            border-bottom: 2px solid white;
+            width: 100%;
+            box-sizing: border-box;
+            
+            
+        }
+     
+        .settings-button{
+            margin-left: auto;
+            padding: 5px 10px;
+            background-color: #222;
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 50%;  
+            cursor: pointer;
+            
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+          
+         
+        }
+        .settings-button:hover{
+            color:black;
+            background-color: white;
+            
+            
+        }
+
+        .chatbox {
+            width: 100%;
+            
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #333;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow:  50px 50px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .chat-output {
+            width: 98.8%;
+            height: 400px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            padding: 5px;
+            background-color: #222;
+            border-radius: 5px;
+            color: white;
+            text-align: left;
+            
+           
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 75%;
+            font-size: 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+            background-color: #444;
+            color: white;
+            border: none;
+        }
+        
+        .user-message {
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 10px;
+            padding: 8px;
+            margin: 5px 0;
+            max-width: 80%;
+            word-wrap: break-word;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        .ai-message {
+            background-color: #555;
+            color: white;
+            border-radius: 10px;
+            padding: 8px;
+            margin: 5px 0;
+            max-width: 80%;
+            word-wrap: break-word;
+            align-self: flex-start;
+        }
+
+        .send-button {
+            padding: 10px 10px;
+            background-color: white;
+            color: black;
+            border: none;
+            border-radius: 50%;  
+            cursor: pointer;
+            margin-left: 10px;
+            width: 40px;
+            height: 43px;
+            font-size: 18px;
+            
+            rotate: 90;
+        }
+
+        .send-button:hover {
+            background-color: #555;
+        }
+        h2{
+            text-align: center;
+            font-size: 36px;
+            color: white;
+            font-family:initial
+
+        }
+        textarea{
+            padding: 10px 10px;
+            width: 75%;
+            font-size: 15px;
+            border-radius: 20px;
+            margin-top: 10px;
+            background-color: #444;
+            color: white;
+            border: none;
+        }
+       
+
+
+     
+
+
+.modal {
+    display: none; 
+    position: fixed;
+    
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+     
+}
+
+
+.modal-content {
+    background-color: #000;
+    margin: 15% auto;
+    padding: 20px;
+    
+    width: 40%;
+    border-radius: 20px;
+   
+}
+
+
+.close {
+    color: white;
+    float: right;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #888;
+    text-decoration: none;
+    cursor: pointer;
+}
+.settings-button1{
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+    background-color: #222;
+    color: white;
+    border: none;
+    font-size: 20px;
+    width: auto;
+    height: 60px;
+    text-align: center;
+    
+    display: inline-block; 
+    margin: 0 ;  
+    line-height: 60px;
+}
+.settings-button2{
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+    background-color:white;
+    color: black;
+    border: none;
+    font-size: 20px;
+    width: auto;
+    height: 60px;
+    text-align: center;
+    
+    display: inline-block; 
+    margin: 0 ;  
+    line-height: 60px;
+}
+h4{
+    display: flex;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 100;
+    color: white;
+    font-family:unset;
+    border-bottom: 1px solid white;
+    padding: 5px;
+
+}
+span{
+    border-radius: 30px;
+    margin-top: 20px; 
+    font-size: 18px
+    
+}
+.settings-button1:hover{
+    cursor: pointer;
+}
+.settings-button2:hover{
+    cursor: pointer;
+}
+.clear-button{
+    margin: 20px auto;
+    display: flex;
+    background-color:darkturquoise;
+    color:#000;
+    border-radius:60px;
+    max-width: 500px;
+    width:170px;
+    height: 45px;
+    justify-content: center;
+    align-items: center;
+    border:none;
+    box-shadow: 0px 0px 15px black ;
+}
+.clear-button:hover{
+    border: 4.5px solid white;
+}
+
+
+    </style>
+</head>
+<body>
+    
+    
+    <h1>
+        <img src="logo.webp"  width="50" height="50" style="vertical-align: middle; margin-right: 10px; border-radius: 50%;">
+        MINI CHAT BOT
+        <button type="submit" class="settings-button" onclick="toggleSettings()">☰</button>
+        
+        
+       
+
+  
+    </h1>
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h4>CHANGE BACKGROUND THEME</h4>
+            <button type="submit" class="settings-button1" onclick="changeTheme('dark')">DARK theme</button>
+            <br>
+            <br>
+            <button type="submit" class="settings-button2" onclick="changeTheme('white')">LIGHT theme</button>
+            
+        </div>
+    </div>
+
+    <div class="chatbox">
+        <div id="chatOutput" class="chat-output">
+            
+            {% for i in range(l) %}
+            
+                <div class="user-message">YOU: {{ questions[i] |safe}}</div>
+                <div class="ai-message">BOT: {{ answers[i] |safe}}</div>
+            {% endfor %}
+        </div>
+
+        
+        <form method="POST">
+            <input type="text" name="question" id="userInput" placeholder="Write anything!..." required />
+            <button type="submit" class="send-button">🡱</button>
+        </form>
+    </div>
+  
+    
+
+</div>
+<br>
+<div class="button-container">
+<form method="POST" action="/clear">
+    <button type="submit" class="clear-button">CLEAR CHAT</button>
+</form>
+</div>
+<script>
+  
+  function openModal() {
+    document.getElementById("settingsModal").style.display = "block";
+}
+
+
+function closeModal() {
+    document.getElementById("settingsModal").style.display = "none";
+}
+
+function changeTheme(theme) {
+    if (theme === 'dark') {
+        document.body.style.backgroundColor = "#222";
+        document.body.style.color = "white";
+        document.querySelectorAll('h1').forEach(element => {
+                    element.style.backgroundColor = '#222';
+                    element.style.color = 'white';
+                    element.style.borderBottom = "2px solid white";
+                });
+    } else if (theme === 'white') {
+        document.body.style.backgroundColor = "white";
+        document.body.style.color = "black";
+        document.querySelectorAll('h1').forEach(element => {
+                    element.style.backgroundColor = "white";
+                    element.style.color = "black";
+                    element.style.borderBottom = "2px solid black";
+                });
+    
+                
+    }
+    localStorage.setItem('theme', theme);
+    closeModal(); 
+}
+
+
+function toggleSettings() {
+    openModal();
+}
+document.addEventListener("DOMContentLoaded", function () {
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme) {
+        changeTheme(savedTheme);
+    }
+});       
+
+</script>
+
+</html>
